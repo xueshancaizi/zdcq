@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 将报错的信息，由英文转变成中文 -->
+    <constant name="struts.custom.i18n.resources" value="com.it.action.uploadmessage"></constant>
+    <package name="firstTopic" namespace="/" extends="struts-default">
+        <action name="firstTopicAction_*" method="{1}" class="com.zdcq.s2sh.action.FirstTopicAction">
+            <result name="list">/manage/jsp/firsttopic/list.jsp</result>
+            <result name="updateUI">/manage/jsp/firsttopic/edit.jsp</result>
+			<result name="addUI">/manage/jsp/firsttopic/add.jsp</result>
+        </action>
+    </package>
+</struts>

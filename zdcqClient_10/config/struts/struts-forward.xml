@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 国际化、将报错的信息，由英文转变成中文 -->
+    <constant name="struts.custom.i18n.resources" value="com.it.action.uploadmessage"></constant>
+    <package name="forward" namespace="/" extends="struts-default">
+        <action name="forwardAction_*" method="{1}" class="com.zdcq.s2sh.action.ForwardAction">
+            <result name="top">/manage/jsp/frame/top.jsp</result>
+            <result name="left">/manage/jsp/frame/left.jsp</result>
+            <result name="welcome">/manage/jsp/frame/welcome.jsp</result>
+            <result name="bottom">/manage/jsp/frame/bottom.jsp</result>
+        </action>
+    </package>
+</struts>

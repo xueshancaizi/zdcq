@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zdcq.s2sh.domain">
+<class name="FenJuInfo" table="fenjuinfo">
+        <id name="fjId" length="10"  type="int" column="fjId">
+            <!-- 
+                hibrenata 会根据不同的数据库，选择相应的策略
+             -->
+            <generator class="increment"></generator>
+        </id>
+        <property name="fjName" type="string" column="fjName"/>
+        <property name="ipAddress" type="string" column="ipAddress"/>
+        <property name="fjLocation" type="string" column="fjLocation"/>
+        <property name="view" type="int" column="view"/>
+    </class>
+</hibernate-mapping>

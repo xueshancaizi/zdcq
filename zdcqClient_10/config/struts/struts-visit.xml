@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 将报错的信息，由英文转变成中文 -->
+	<constant name="struts.custom.i18n.resources" value="com.it.action.uploadmessage"></constant>
+    <package name="visit" namespace="/" extends="struts-default">
+        <action name="VisitAction_*" method="{1}" class="com.zdcq.s2sh.action.VisitAction">
+            <result name="welcome">welcome.jsp</result>
+            <result name="welcome_assort">welcome_assort.jsp</result>   
+			<result name="content">content.jsp</result>
+			<result name="section">section.jsp</result>
+			<result name="news">news.jsp</result>
+			<result name="reVisit">welcome2.jsp</result>
+        </action>
+    </package>
+</struts>

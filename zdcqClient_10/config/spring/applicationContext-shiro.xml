@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<bean id="shiroSecurityFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!--链接到登录页面,如果没有登录，直接访问一个url，也会跳转到登录页面-->
+		<property name="loginUrl" value="/manage/jsp/login.jsp"></property>
+		<property name="successUrl" value="/manage/jsp/frame/home.jsp"></property>
+		<!--如果当前用户在访问某一个资源的时候，没有被授权，应该跳转到的页面-->
+		<property name="unauthorizedUrl" value="/manage/jsp/unauthorized.jsp"></property>
+		<property name="securityManager" ref="securityManager"></property>
+		<!--该过滤器链是用来过滤url的-->
+		<property name="filterChainDefinitions">
+			<value>
+				/manage/jsp/login.jsp* = anon
+				/loginAction_login.action* = anon
+				/*.action* = authc
+			</value>
+		</property>
+	</bean>
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+	    <property name="realm">
+	    	<ref bean="oaRealm"></ref>
+	    </property>
+	</bean>
+	<bean id="oaRealm" class="com.zdcq.s2sh.shiro.OARealm"></bean>
+</beans>

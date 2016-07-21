@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zdcq.s2sh.domain">
+<class name="User" table="user" lazy="true">
+        <id name="userID"  type="long" column="userID">
+             <!-- hibernate 会根据不同的数据库选择合适的主键生成方式 -->
+            <generator class="identity"/>
+        </id>
+        <property name="loginname" type="string" column="loginname"/>
+        <property name="username" type="string" column="username"/>
+        <property name="password" type="string" column="password"/>
+        <property name="sex" type="string" column="sex"/>
+        <property name="birthday" type="date" column="birthday"/>
+        <property name="education" type="string" column="education"/>
+        <property name="telephone" type="string" column="telephone"/>
+        <property name="interest" type="string" column="interest"/>
+        <property name="path" type="string" column="path"/>
+        <property name="filename" type="string" column="filename"/>
+        <property name="remark" type="string" column="remark"/>
+    </class>
+</hibernate-mapping>

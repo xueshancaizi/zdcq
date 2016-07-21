@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 将报错的信息，由英文转变成中文 -->
+    <constant name="struts.custom.i18n.resources" value="com.it.action.uploadmessage"></constant>
+    <package name="fenjuinfo" namespace="/" extends="struts-default">
+        <action name="FenJuInfoAction_*" method="{1}" class="com.zdcq.s2sh.action.FenJuInfoAction">
+            <result name="list">/manage/jsp/fenjuinfo/list.jsp</result>
+            <result name="view">/manage/jsp/fenjuinfo/view.jsp</result>
+            <result name="edit">/manage/jsp/fenjuinfo/edit.jsp</result>
+            
+			<result name="addUserUI">/manage/jsp/user/add.jsp</result>
+        </action>
+    </package>
+</struts>

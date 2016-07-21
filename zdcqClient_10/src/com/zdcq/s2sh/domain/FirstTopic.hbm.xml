@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zdcq.s2sh.domain">
+<class name="FirstTopic" table="firsttopic">
+        <id name="fid"  type="string">
+             <!-- hibernate 会根据不同的数据库选择合适的主键生成方式 -->
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string" column="tName"/>
+        <list name="secondTopic" table="secondtopic" cascade="all" inverse="false" >
+	      <key column="fid"></key>
+	      <list-index column="[index]" base="0"></list-index>
+	      <one-to-many class="com.zdcq.s2sh.domain.SecondTopic"/>
+   		</list>
+    </class>
+</hibernate-mapping>

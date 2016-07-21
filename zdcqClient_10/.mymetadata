@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="zdcqClient_10"
+  id="myeclipse.1439866595391"
+  context-root="/zdcq"
+  j2ee-spec="6.0"
+  archive="zdcqClient_10.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

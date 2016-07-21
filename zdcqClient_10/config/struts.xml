@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- 
+		常量
+		   用来改变default.properties文件中的常量的设置
+	 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 
+		一般在开发的情况下，设置struts.devMode为true,这样修改完xml文件以后不用重新启动了
+	 -->
+	<constant name="struts.devMode" value="true"/>
+
+	<include file="struts/struts-forward.xml"></include>
+	<include file="struts/struts-user.xml"></include>
+	<include file="struts/struts-fenjuinfo.xml"></include>
+	<include file="struts/struts-firsttopic.xml"></include>
+	<include file="struts/struts-secondtopic.xml"></include>
+	<include file="struts/struts-visit.xml"></include>
+	<include file="struts/struts-login.xml"></include>
+	
+	<package name="token" namespace="/" extends="struts-default">
+		
+		<interceptors>
+			<interceptor-stack name="tokenInterceptor">
+				<interceptor-ref name="token">
+					<param name="includeMethods">login</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="tokenInterceptor"></default-interceptor-ref>
+		
+				<!-- 全局错误处理 -->
+		<global-results>
+			<result name="errHandler" type="chain">
+				<param name="actionName">errorProcessor</param>
+			</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="errHandler" />
+		</global-exception-mappings>
+		
+		<action name="errorProcessor" class="com.zdcq.s2sh.exception.ErrorPrcessor">
+					<result>/error.jsp</result>
+		</action>
+	</package>
+</struts>
